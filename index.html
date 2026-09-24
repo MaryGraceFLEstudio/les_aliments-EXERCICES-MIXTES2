@@ -9,7 +9,7 @@
             --primary-neon: #FF007F;
             --secondary-pink: #FF4DA6;
             --accent-cyan: #00F5FF;
-            --bg-deep: #1a0010; 
+            --bg-deep: #1a0010;
             --bg-gradient: radial-gradient(circle at top, #4d0030 0%, #0a0005 100%);
             --glass-bg: rgba(255, 255, 255, 0.06);
             --glass-border: rgba(255, 0, 127, 0.3);
@@ -38,7 +38,6 @@
             opacity: 0.06; pointer-events: none; z-index: 9999;
         }
 
-        /* Nav Sticky */
         nav {
             position: sticky; top: 15px; width: 92%; max-width: 1100px; margin: 0 auto;
             background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(20px);
@@ -53,13 +52,24 @@
             transition: 0.3s; border-radius: 25px; cursor: pointer;
         }
 
-        nav a:hover, nav a.active { background: var(--primary-neon); box-shadow: var(--shadow-glow); transform: scale(1.05); }
+        nav a:hover, nav a.active {
+            background: var(--primary-neon);
+            box-shadow: var(--shadow-glow);
+            transform: scale(1.05);
+        }
 
-        /* Sections */
-        section { display: none; padding: 100px 15px 60px; max-width: 1100px; margin: 0 auto; animation: fadeInUp 0.5s ease; }
+        section {
+            display: none; padding: 100px 15px 60px;
+            max-width: 1100px; margin: 0 auto;
+            animation: fadeInUp 0.5s ease;
+        }
+
         section.active { display: block; }
 
-        @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
 
         .glass-pane {
             background: var(--glass-bg); backdrop-filter: blur(20px);
@@ -67,58 +77,153 @@
             padding: 35px; margin-bottom: 40px; position: relative;
         }
 
-        h1, h2, h3 { color: var(--primary-neon); text-shadow: 0 0 15px rgba(255, 0, 127, 0.5); margin-top: 0; }
-        h1 { font-size: clamp(2rem, 7vw, 3.5rem); text-align: center; margin-bottom: 10px; }
-
-        .hero-img {
-            width: 100%; height: clamp(250px, 40vh, 400px); object-fit: cover;
-            border-radius: var(--radius-lg); border: 2px solid var(--primary-neon);
-            margin-bottom: 25px; box-shadow: var(--shadow-glow);
+        h1, h2, h3 {
+            color: var(--primary-neon);
+            text-shadow: 0 0 15px rgba(255, 0, 127, 0.5);
+            margin-top: 0;
         }
 
-        /* Exercise Styles */
+        h1 {
+            font-size: clamp(2rem, 7vw, 3.5rem);
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .hero-img {
+            width: 100%; height: clamp(250px, 40vh, 400px);
+            object-fit: cover;
+            border-radius: var(--radius-lg);
+            border: 2px solid var(--primary-neon);
+            margin-bottom: 25px;
+            box-shadow: var(--shadow-glow);
+        }
+
         .exercise-card {
-            background: rgba(0,0,0,0.3); border-radius: var(--radius-md);
-            padding: 20px; margin-bottom: 15px; border-left: 5px solid var(--primary-neon);
+            background: rgba(0,0,0,0.3);
+            border-radius: var(--radius-md);
+            padding: 20px;
+            margin-bottom: 15px;
+            border-left: 5px solid var(--primary-neon);
         }
 
         input[type="text"], select {
-            background: rgba(0,0,0,0.4); border: 1px solid var(--glass-border);
-            color: white; padding: 8px; border-radius: 8px; outline: none; transition: 0.3s;
-            font-size: 1rem; width: auto; min-width: 120px;
+            background: rgba(0,0,0,0.4);
+            border: 1px solid var(--glass-border);
+            color: white;
+            padding: 8px;
+            border-radius: 8px;
+            outline: none;
+            transition: 0.3s;
+            font-size: 1rem;
+            width: auto;
+            min-width: 120px;
         }
-        input[type="text"]:focus { border-color: var(--accent-cyan); box-shadow: 0 0 8px var(--accent-cyan); }
+
+        input[type="text"]:focus {
+            border-color: var(--accent-cyan);
+            box-shadow: 0 0 8px var(--accent-cyan);
+        }
 
         .btn {
             background: linear-gradient(135deg, var(--primary-neon), var(--secondary-pink));
-            border: none; color: white; padding: 12px 24px; border-radius: 50px;
-            font-weight: 800; cursor: pointer; transition: 0.3s;
-            text-transform: uppercase; margin: 5px; font-size: 0.85rem;
+            border: none;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 50px;
+            font-weight: 800;
+            cursor: pointer;
+            transition: 0.3s;
+            text-transform: uppercase;
+            margin: 5px;
+            font-size: 0.85rem;
         }
-        .btn:hover { transform: translateY(-2px); box-shadow: 0 0 20px var(--primary-neon); filter: brightness(1.1); }
-        .btn-secondary { background: rgba(255,255,255,0.05); border: 1px solid var(--primary-neon); }
 
-        .correct { border-color: var(--success) !important; color: var(--success) !important; text-shadow: 0 0 5px var(--success); }
-        .wrong { border-color: var(--error) !important; color: var(--error) !important; text-shadow: 0 0 5px var(--error); }
-
-        /* Video Container */
-        .video-wrapper {
-            position: relative; padding-bottom: 56.25%; height: 0; border-radius: 15px;
-            overflow: hidden; border: 2px solid var(--primary-neon); margin: 20px 0;
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 0 20px var(--primary-neon);
+            filter: brightness(1.1);
         }
-        .video-wrapper iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
 
-        .pagination { display: flex; justify-content: space-between; align-items: center; margin-top: 30px; border-top: 1px solid var(--glass-border); padding-top: 20px; }
+        .btn-secondary {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid var(--primary-neon);
+        }
 
-        /* Sortable */
-        .sortable-list { display: flex; flex-direction: column; gap: 8px; }
-        .sortable-item {
-            padding: 10px 15px; background: rgba(255,255,255,0.05);
-            border: 1px solid var(--glass-border); border-radius: 10px; cursor: grab;
+        .correct {
+            border-color: var(--success) !important;
+            color: var(--success) !important;
+            text-shadow: 0 0 5px var(--success);
+        }
+
+        .wrong {
+            border-color: var(--error) !important;
+            color: var(--error) !important;
+            text-shadow: 0 0 5px var(--error);
+        }
+
+        .answer-feedback {
+            display: inline-block;
+            margin-left: 10px;
+            color: var(--text-main);
             font-size: 0.9rem;
+            text-shadow: none;
         }
 
-        footer { text-align: center; padding: 40px; border-top: 1px solid var(--glass-border); background: rgba(0,0,0,0.15); margin-top: 40px; }
+        .score-feedback {
+            margin-top: 12px;
+            text-align: center;
+            font-weight: 800;
+        }
+
+        .video-wrapper {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            border-radius: 15px;
+            overflow: hidden;
+            border: 2px solid var(--primary-neon);
+            margin: 20px 0;
+        }
+
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .pagination {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 30px;
+            border-top: 1px solid var(--glass-border);
+            padding-top: 20px;
+        }
+
+        .sortable-list {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .sortable-item {
+            padding: 10px 15px;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid var(--glass-border);
+            border-radius: 10px;
+            cursor: grab;
+            font-size: 0.9rem;
+            touch-action: none;
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px;
+            border-top: 1px solid var(--glass-border);
+            background: rgba(0,0,0,0.15);
+            margin-top: 40px;
+        }
     </style>
 </head>
 <body>
@@ -131,37 +236,35 @@
         <a onclick="showPage('closing')" id="nav-closing">Fin</a>
     </nav>
 
-    <!-- 🏠 HOME -->
     <section id="home" class="active">
         <div class="glass-pane" style="text-align: center;">
             <p style="color: var(--accent-cyan); font-weight: 800; letter-spacing: 2px; margin-bottom: 5px;">SESSION INTERACTIVE — 2026</p>
             <h1>Gastronomie & Langue 🥐</h1>
-            <img src="https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&w=1200&q=80" alt="Cuisine Française" class="hero-img">
+            <img src="https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&w=1200&q=80" alt="Cuisine française" class="hero-img">
             <p>Bienvenue dans le portail d'apprentissage du prof. Maria Grazia Bianco. Explorez les documents originaux, testez vos compétences et apprenez en vous amusant !</p>
             <button class="btn" onclick="showPage('theory')">Commencer l'exploration</button>
             <p style="margin-top: 40px; font-weight: bold; opacity: 0.8;">site conçu par prof. MARIA GRAZIA BIANCO — 2026</p>
         </div>
     </section>
 
-    <!-- 📖 THEORY -->
     <section id="theory">
         <div class="glass-pane">
-            <h2>📖 Fondamentaux Lexicaux</h2>
+            <h2>📖 Fondamentaux lexicaux</h2>
             <img src="https://images.unsplash.com/photo-1488459716781-31db52582fe9?auto=format&fit=crop&w=1200&q=80" alt="Marché" class="hero-img">
-            
-            <h3>1. Les Articles Partitifs</h3>
+
+            <h3>1. Les articles partitifs</h3>
             <div class="exercise-card">
                 <p>On utilise <strong>du, de la, de l', des</strong> pour exprimer une partie d'un tout.</p>
                 <ul>
-                    <li>Masc. Sing: <strong>du</strong> pain</li>
-                    <li>Fém. Sing: <strong>de la</strong> viande</li>
-                    <li>Voyelle/h: <strong>de l'</strong>eau</li>
-                    <li>Pluriel: <strong>des</strong> œufs</li>
-                    <li>Négation: <strong>de / d'</strong> (Je ne mange pas <em>de</em> viande)</li>
+                    <li>Masc. sing. : <strong>du</strong> pain</li>
+                    <li>Fém. sing. : <strong>de la</strong> viande</li>
+                    <li>Voyelle / h muet : <strong>de l'</strong>eau</li>
+                    <li>Pluriel : <strong>des</strong> œufs</li>
+                    <li>Négation : <strong>de / d'</strong> (Je ne mange pas <em>de</em> viande.)</li>
                 </ul>
             </div>
 
-            <h3>2. L'Équipement de Cuisine</h3>
+            <h3>2. L'équipement de cuisine</h3>
             <p>Vocabulaire extrait des documents originaux :</p>
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px;">
                 <div class="exercise-card">Une assiette 🍽️</div>
@@ -173,136 +276,114 @@
 
             <h3>3. Verbes d'action culinaire</h3>
             <div class="exercise-card">
-                <strong>Éplucher, Couper, Ajouter, Mélanger, Verser, Frire, Cuire, Griller.</strong>
+                <strong>Éplucher, couper, ajouter, mélanger, verser, frire, cuire, griller.</strong>
             </div>
 
-            <div style="text-align: center; margin-top: 20px;"><button class="btn" onclick="showPage('ex-index')">Aller aux exercices</button></div>
+            <div style="text-align: center; margin-top: 20px;">
+                <button class="btn" onclick="showPage('ex-index')">Aller aux exercices</button>
+            </div>
         </div>
     </section>
 
-    <!-- 🎯 EXERCICES INDEX -->
     <section id="ex-index">
         <div class="glass-pane">
-            <h2>🎯 Catalogue des Activités</h2>
+            <h2>🎯 Catalogue des activités</h2>
             <p>Complétez tous les modules pour une maîtrise totale (2026) :</p>
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 12px;">
                 <button class="btn btn-secondary" onclick="showPage('ex1')">1. Association (30 mots)</button>
-                <button class="btn btn-secondary" onclick="showPage('ex2')">2. L'Impératif (30 phrases)</button>
+                <button class="btn btn-secondary" onclick="showPage('ex2')">2. L'impératif (30 phrases)</button>
                 <button class="btn btn-secondary" onclick="showPage('ex3')">3. Choisis le bon verbe (16 phrases)</button>
-                <button class="btn btn-secondary" onclick="showPage('ex4')">4. Lexique Expert (50 mots)</button>
-                <button class="btn btn-secondary" onclick="showPage('ex5')">5. Dialogue au restaurant (Ordre)</button>
-                <button class="btn btn-secondary" onclick="showPage('ex6')">6. Articles Partitifs</button>
-                <button class="btn btn-secondary" onclick="showPage('ex7')">7. Énigmes : Devinez l'aliment</button>
+                <button class="btn btn-secondary" onclick="showPage('ex4')">4. Lexique expert (50 mots)</button>
+                <button class="btn btn-secondary" onclick="showPage('ex5')">5. Dialogue au marché (ordre)</button>
+                <button class="btn btn-secondary" onclick="showPage('ex6')">6. Articles partitifs</button>
+                <button class="btn btn-secondary" onclick="showPage('ex7')">7. Énigmes : devinez l'aliment</button>
             </div>
         </div>
     </section>
 
-    <!-- 📝 EX 1: ASSOCIATION 30 WORDS -->
     <section id="ex1">
         <div class="glass-pane">
-            <div class="pagination"><span>Module 1 : Association Expert</span><a onclick="showPage('ex-index')">Index ⤴</a></div>
-            <h3>Association Français-Italien (Document Intégral)</h3>
-            <div id="ex1-container" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 10px;">
-                <!-- JS Populated -->
-            </div>
+            <div class="pagination"><span>Module 1 : Association expert</span><a onclick="showPage('ex-index')">Index ⤴</a></div>
+            <h3>Association français-italien (document intégral)</h3>
+            <div id="ex1-container" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 10px;"></div>
             <div style="text-align:center; margin-top:20px;"><button class="btn" onclick="checkEx1()">Vérifier mes réponses</button></div>
         </div>
     </section>
 
-    <!-- ⚡ EX 2: IMPERATIF 30 ITEMS -->
     <section id="ex2">
         <div class="glass-pane">
-            <div class="pagination"><span>Module 2 : L'Impératif</span><a onclick="showPage('ex-index')">Index ⤴</a></div>
-            <h3>Conjugaison à l'Impératif (30 phrases)</h3>
-            <p>Complétez avec le verbe conjugué au pronom indiqué entre parenthèses.</p>
-            <div id="ex2-container">
-                <!-- JS Populated -->
-            </div>
+            <div class="pagination"><span>Module 2 : L'impératif</span><a onclick="showPage('ex-index')">Index ⤴</a></div>
+            <h3>Conjugaison à l'impératif (30 phrases)</h3>
+            <p>Complétez avec le verbe conjugué à la personne indiquée entre parenthèses.</p>
+            <div id="ex2-container"></div>
             <div style="text-align:center; margin-top:20px;"><button class="btn" onclick="checkEx2()">Valider l'impératif</button></div>
         </div>
     </section>
 
-    <!-- ✅ EX 3: VERBE CHOIX -->
     <section id="ex3">
         <div class="glass-pane">
             <div class="pagination"><span>Module 3 : Forme du verbe</span><a onclick="showPage('ex-index')">Index ⤴</a></div>
             <h3>Choisissez la forme correcte (16 phrases)</h3>
-            <div id="ex3-container">
-                <!-- JS Populated -->
-            </div>
+            <div id="ex3-container"></div>
             <div style="text-align:center; margin-top:20px;"><button class="btn" onclick="checkEx3()">Vérifier le score</button></div>
         </div>
     </section>
 
-    <!-- 🍎 EX 4: 50 WORDS LEXIQUE -->
     <section id="ex4">
         <div class="glass-pane">
             <div class="pagination"><span>Module 4 : Lexique de 50 mots</span><a onclick="showPage('ex-index')">Index ⤴</a></div>
-            <h3>Défi Traduction : Trouvez le bon mot</h3>
-            <div id="ex4-container" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 10px;">
-                <!-- JS Populated -->
-            </div>
+            <h3>Défi traduction : trouvez le bon mot</h3>
+            <div id="ex4-container" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 10px;"></div>
             <div style="text-align:center; margin-top:20px;"><button class="btn" onclick="checkEx4()">Vérifier le lexique</button></div>
         </div>
     </section>
 
-    <!-- 🛒 EX 5: DIALOGUE ORDER -->
     <section id="ex5">
         <div class="glass-pane">
             <div class="pagination"><span>Module 5 : Logique de dialogue</span><a onclick="showPage('ex-index')">Index ⤴</a></div>
-            <h3>Dialogue au Marché / Restaurant</h3>
-            <p>Remettez les répliques dans le bon ordre (Glissez-déposez).</p>
-            <div id="sort-container" class="sortable-list">
-                <!-- JS Populated -->
-            </div>
+            <h3>Dialogue au marché</h3>
+            <p>Remettez les répliques dans le bon ordre (glissez-déposez).</p>
+            <div id="sort-container" class="sortable-list"></div>
             <div style="text-align:center; margin-top:30px;"><button class="btn" onclick="checkEx5()">Vérifier l'ordre</button></div>
         </div>
     </section>
 
-    <!-- 🥛 EX 6: PARTITIFS -->
     <section id="ex6">
         <div class="glass-pane">
             <div class="pagination"><span>Module 6 : Partitifs</span><a onclick="showPage('ex-index')">Index ⤴</a></div>
-            <h3>Articles Partitifs et Négation</h3>
-            <div id="ex6-container">
-                <!-- JS Populated -->
-            </div>
+            <h3>Articles partitifs et négation</h3>
+            <div id="ex6-container"></div>
             <div style="text-align:center; margin-top:20px;"><button class="btn" onclick="checkEx6()">Vérifier les articles</button></div>
         </div>
     </section>
 
-    <!-- 🕵️ EX 7: RIDDLES -->
     <section id="ex7">
         <div class="glass-pane">
             <div class="pagination"><span>Module 7 : Énigmes</span><a onclick="showPage('ex-index')">Index ⤴</a></div>
             <h3>Devinez l'aliment</h3>
-            <div id="ex7-container">
-                <!-- JS Populated -->
-            </div>
+            <div id="ex7-container"></div>
             <div style="text-align:center; margin-top:20px;"><button class="btn" onclick="checkEx7()">Répondre aux énigmes</button></div>
         </div>
     </section>
 
-    <!-- 🎬 MEDIA SECTION -->
     <section id="media">
         <div class="glass-pane">
-            <h2>🎬 Ressources Multimédia</h2>
+            <h2>🎬 Ressources multimédia</h2>
             <div class="exercise-card">
                 <p><strong>Vidéo 1 : Le vocabulaire de la nourriture</strong></p>
-                <div class="video-wrapper"><iframe src="https://www.youtube.com/embed/oT-pyPS0APY"></iframe></div>
+                <div class="video-wrapper"><iframe src="https://www.youtube.com/embed/oT-pyPS0APY" title="Le vocabulaire de la nourriture" allowfullscreen></iframe></div>
             </div>
             <div class="exercise-card">
                 <p><strong>Vidéo 2 : Faire les courses en français</strong></p>
-                <div class="video-wrapper"><iframe src="https://www.youtube.com/embed/OmxQhCPSYNA"></iframe></div>
+                <div class="video-wrapper"><iframe src="https://www.youtube.com/embed/OmxQhCPSYNA" title="Faire les courses en français" allowfullscreen></iframe></div>
             </div>
             <div class="exercise-card">
-                <p><strong>Vidéo 3 : Humour et Cuisine 🎭 (Pour vous faire rire)</strong></p>
-                <div class="video-wrapper"><iframe src="https://www.youtube.com/embed/nJ03KjwiIVM"></iframe></div>
+                <p><strong>Vidéo 3 : Humour et cuisine 🎭 (pour vous faire rire)</strong></p>
+                <div class="video-wrapper"><iframe src="https://www.youtube.com/embed/nJ03KjwiIVM" title="Humour et cuisine" allowfullscreen></iframe></div>
             </div>
         </div>
     </section>
 
-    <!-- ✨ CLOSING -->
     <section id="closing">
         <div class="glass-pane" style="text-align: center;">
             <h1>Félicitations ! 🎉</h1>
@@ -318,19 +399,15 @@
     </footer>
 
     <script>
-        // --- CORE NAVIGATION ---
         function showPage(id) {
             document.querySelectorAll('section').forEach(s => s.classList.remove('active'));
             document.getElementById(id).classList.add('active');
             document.querySelectorAll('nav a').forEach(a => a.classList.remove('active'));
             const link = document.getElementById('nav-' + (id.startsWith('ex') ? 'ex-index' : id));
-            if(link) link.classList.add('active');
+            if (link) link.classList.add('active');
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        // --- DATA POPULATION & LOGIC ---
-
-        // EX 1: ASSOCIATION (30 items)
         const assocData = [
             {f: "la pomme", i: "mela"}, {f: "la banane", i: "banana"}, {f: "la poire", i: "pera"}, {f: "l'orange", i: "arancia"},
             {f: "la fraise", i: "fragola"}, {f: "la cerise", i: "ciliegia"}, {f: "le citron", i: "limone"}, {f: "le melon", i: "melone"},
@@ -341,12 +418,12 @@
             {f: "le riz", i: "riso"}, {f: "les pâtes", i: "pasta"}, {f: "les œufs", i: "uova"}, {f: "le poulet", i: "pollo"},
             {f: "le porc", i: "maiale"}, {f: "la saucisse", i: "salsiccia"}
         ];
+
         const ex1Grid = document.getElementById('ex1-container');
         assocData.forEach((item, i) => {
             ex1Grid.innerHTML += `<div class="exercise-card" style="margin:0;">${i+1}. <strong>${item.f}</strong><br><input type="text" data-ans="${item.i}" placeholder="Traduction..."></div>`;
         });
 
-        // EX 2: IMPERATIF (30 sentences)
         const imperData = [
             {v: "acheter", p: "tu", a: "achète", s: "du pain au supermarché."},
             {v: "regarder", p: "tu", a: "regarde", s: "la liste des courses."},
@@ -376,15 +453,15 @@
             {v: "acheter", p: "vous", a: "achetez", s: "du fromage pour le dîner."},
             {v: "mettre", p: "vous", a: "mettez", s: "les produits dans le chariot."},
             {v: "choisir", p: "vous", a: "choisissez", s: "les fruits mûrs."},
-            {v: "prendre", p: "vous", a: "prenez", s: "la caisse numéro trois."},
+            {v: "passer", p: "vous", a: "passez", s: "à la caisse numéro trois."},
             {v: "vérifier", p: "vous", a: "vérifiez", s: "les prix avant d'acheter."}
         ];
+
         const ex2Grid = document.getElementById('ex2-container');
         imperData.forEach((item, i) => {
             ex2Grid.innerHTML += `<div class="exercise-card">${i+1}. <input type="text" data-ans="${item.a}" style="width:100px;"> ${item.s} (${item.v} - ${item.p})</div>`;
         });
 
-        // EX 3: VERB CHOICE (16 items)
         const verbData = [
             {q: "Claire et Marc ... au supermarché.", o: ["vont", "va", "allez"], a: "vont"},
             {q: "Claire ... des tomates.", o: ["choisissons", "choisi", "choisit"], a: "choisit"},
@@ -393,7 +470,7 @@
             {q: "Tu ... du pain.", o: ["achetez", "achètes", "achetons"], a: "achètes"},
             {q: "Claire ... la liste.", o: ["regardes", "regarde", "regardons"], a: "regarde"},
             {q: "Marc ... le prix.", o: ["regarde", "regardez", "regardons"], a: "regarde"},
-            {q: "Nous ... du lait.", o: ["achete", "achetons", "achetez"], a: "achetons"},
+            {q: "Nous ... du lait.", o: ["achète", "achetons", "achetez"], a: "achetons"},
             {q: "Tu ... des bananes.", o: ["prend", "prends", "prennent"], a: "prends"},
             {q: "Claire ... une bouteille d'eau.", o: ["prennent", "prenez", "prend"], a: "prend"},
             {q: "Marc ... du riz.", o: ["choisis", "choisit", "choisissez"], a: "choisit"},
@@ -403,20 +480,24 @@
             {q: "Marc ... la date.", o: ["lis", "lit", "lisez"], a: "lit"},
             {q: "Nous ... nos courses.", o: ["finit", "finis", "finissons"], a: "finissons"}
         ];
+
         const ex3Grid = document.getElementById('ex3-container');
         verbData.forEach((item, i) => {
-            let options = item.o.map(o => `<option>${o}</option>`).join('');
+            const options = item.o.map(o => `<option>${o}</option>`).join('');
             ex3Grid.innerHTML += `<div class="exercise-card">${i+1}. ${item.q} <select data-ans="${item.a}"><option>--</option>${options}</select></div>`;
         });
 
-        // EX 4: 50 WORDS (Expanded dataset)
+        function withoutArticle(text) {
+            return text.replace(/^(le |la |les |l['’])/i, '').trim();
+        }
+
         const words50 = [
             {it: "pera", f: "la poire"}, {it: "pesca", f: "la pêche"}, {it: "prugna", f: "la prune"}, {it: "ciliegia", f: "la cerise"},
             {it: "fragola", f: "la fraise"}, {it: "lampone", f: "la framboise"}, {it: "arancia", f: "l'orange"}, {it: "limone", f: "le citron"},
             {it: "mandarino", f: "la mandarine"}, {it: "melone", f: "le melon"}, {it: "zucchina", f: "la courgette"}, {it: "melanzana", f: "l'aubergine"},
             {it: "cetriolo", f: "le concombre"}, {it: "peperone", f: "le poivron"}, {it: "pomodoro", f: "la tomate"}, {it: "carota", f: "la carotte"},
             {it: "cipolla", f: "l'oignon"}, {it: "aglio", f: "l'ail"}, {it: "patata", f: "la pomme de terre"}, {it: "insalata", f: "la salade"},
-            {it: "carciofo", f: "l'artichaut"}, {it: "spinaci", f: "l'épinard"}, {it: "zucca", f: "le potiron"}, {it: "pane", f: "le pain"},
+            {it: "carciofo", f: "l'artichaut"}, {it: "spinaci", f: "les épinards"}, {it: "zucca", f: "le potiron"}, {it: "pane", f: "le pain"},
             {it: "burro", f: "le beurre"}, {it: "formaggio", f: "le fromage"}, {it: "uova", f: "les œufs"}, {it: "latte", f: "le lait"},
             {it: "carne", f: "la viande"}, {it: "pollo", f: "le poulet"}, {it: "pesce", f: "le poisson"}, {it: "riso", f: "le riz"},
             {it: "zucchero", f: "le sucre"}, {it: "sale", f: "le sel"}, {it: "aceto", f: "le vinaigre"}, {it: "olio", f: "l'huile"},
@@ -425,72 +506,147 @@
             {it: "succo", f: "le jus"}, {it: "tè", f: "le thé"}, {it: "caffè", f: "le café"}, {it: "pasta", f: "les pâtes"},
             {it: "farina", f: "la farine"}, {it: "maiale", f: "le porc"}
         ];
+
         const ex4Grid = document.getElementById('ex4-container');
         words50.forEach((w, i) => {
-            ex4Grid.innerHTML += `<div class="exercise-card" style="margin:0;">${i+1}. ${w.it} : <input type="text" data-ans="${w.f}"></div>`;
+            ex4Grid.innerHTML += `<div class="exercise-card" style="margin:0;">${i+1}. ${w.it} : <input type="text" data-ans="${w.f}|${withoutArticle(w.f)}"></div>`;
         });
 
-        // EX 5: DIALOGUE ORDER
         const dialOrder = [
-            "Alors c'est à qui ?", "C'est à moi.", "Vous désirez ?", "Je voudrais du jambon.",
+            "Alors, c'est à qui ?", "C'est à moi.", "Vous désirez ?", "Je voudrais du jambon.",
             "Combien il vous en faut ?", "5 tranches s'il vous plaît.", "Avec ceci ?",
-            "Vous avez du fromage ?", "Bien sûr! Quel fromage vous voulez ?", "Je voudrais 250g de gruyère.",
-            "Voilà. Vous désirez autre chose ?", "En fait je cherche aussi de l'huile grecque.",
-            "Ah désolée, nous n'avons pas d'huile grecque.", "Alors ce sera tout ? Ça fait 10,50€.", "Voilà. Merci. Bonne journée."
+            "Vous avez du fromage ?", "Bien sûr ! Quel fromage voulez-vous ?", "Je voudrais 250 g de gruyère.",
+            "Voilà. Vous désirez autre chose ?", "En fait, je cherche aussi de l'huile grecque.",
+            "Ah, désolée, nous n'avons pas d'huile grecque.", "Alors, ce sera tout ? Ça fait 10,50 €.",
+            "Voilà. Merci. Bonne journée."
         ];
+
         const sortCont = document.getElementById('sort-container');
         [...dialOrder].sort(() => Math.random() - 0.5).forEach(line => {
             sortCont.innerHTML += `<div class="sortable-item" draggable="true">${line}</div>`;
         });
 
-        // Drag and Drop (Simplified for mobile)
-        let dragged;
-        document.addEventListener("dragstart", e => { if(e.target.className === 'sortable-item') dragged = e.target; });
+        let dragged = null;
+
+        document.addEventListener("dragstart", e => {
+            if (e.target.classList.contains('sortable-item')) dragged = e.target;
+        });
+
         document.addEventListener("dragover", e => e.preventDefault());
+
         document.addEventListener("drop", e => {
-            if(e.target.className === 'sortable-item') {
+            if (e.target.classList.contains('sortable-item') && dragged) {
                 const list = Array.from(e.target.parentNode.children);
                 const iTarget = list.indexOf(e.target);
                 const iDragged = list.indexOf(dragged);
-                if(iDragged < iTarget) e.target.after(dragged); else e.target.before(dragged);
+                if (iDragged < iTarget) e.target.after(dragged);
+                else e.target.before(dragged);
             }
         });
 
-        // EX 6: PARTITIFS
+        let touchDragged = null;
+
+        sortCont.addEventListener('touchstart', e => {
+            const item = e.target.closest('.sortable-item');
+            if (item) touchDragged = item;
+        }, { passive: true });
+
+        sortCont.addEventListener('touchmove', e => {
+            if (!touchDragged) return;
+            const touch = e.touches[0];
+            const target = document.elementFromPoint(touch.clientX, touch.clientY)?.closest('.sortable-item');
+            if (target && target !== touchDragged && target.parentNode === sortCont) {
+                const rect = target.getBoundingClientRect();
+                if (touch.clientY < rect.top + rect.height / 2) target.before(touchDragged);
+                else target.after(touchDragged);
+                e.preventDefault();
+            }
+        }, { passive: false });
+
+        sortCont.addEventListener('touchend', () => {
+            touchDragged = null;
+        });
+
         const partData = [
-            {q: "Je voudrais ___ pain.", a: "du"}, {q: "Elle mange ___ viande.", a: "de la"},
-            {q: "Il boit ___ eau.", a: "de l'"}, {q: "Nous prenons ___ fraises.", a: "des"},
+            {q: "Je voudrais ___ pain.", a: "du"},
+            {q: "Elle mange ___ viande.", a: "de la"},
+            {q: "Il boit ___ eau.", a: "de l'"},
+            {q: "Nous prenons ___ fraises.", a: "des"},
             {q: "Je ne veux pas ___ sucre.", a: "de"}
         ];
+
         const ex6Grid = document.getElementById('ex6-container');
         partData.forEach((p, i) => {
             ex6Grid.innerHTML += `<div class="exercise-card">${i+1}. ${p.q} <input type="text" data-ans="${p.a}" style="width:70px;"></div>`;
         });
 
-        // EX 7: RIDDLES
         const riddleData = [
-            {q: "Je suis blanche, liquide et je viens de la vache.", a: "le lait"},
+            {q: "Je suis blanc, liquide et je viens de la vache.", a: "le lait"},
             {q: "On me coupe en morceaux pour faire des frites.", a: "la pomme de terre"},
-            {q: "Je suis long, orange et les lapins m'adorent.", a: "la carotte"},
+            {q: "Je suis longue, orange et les lapins m'adorent.", a: "la carotte"},
             {q: "Je suis un fruit jaune et très acide.", a: "le citron"}
         ];
+
         const ex7Grid = document.getElementById('ex7-container');
         riddleData.forEach((r, i) => {
-            ex7Grid.innerHTML += `<div class="exercise-card"><strong>Énigme :</strong> ${r.q}<br><input type="text" data-ans="${r.a}" placeholder="Aliment..."></div>`;
+            ex7Grid.innerHTML += `<div class="exercise-card"><strong>Énigme :</strong> ${r.q}<br><input type="text" data-ans="${r.a}|${withoutArticle(r.a)}" placeholder="Aliment..."></div>`;
         });
 
-        // --- CHECKERS ---
+        function normalizeAnswer(text) {
+            return text
+                .normalize('NFC')
+                .toLowerCase()
+                .replace(/[’‘]/g, "'")
+                .replace(/\s+/g, ' ')
+                .trim();
+        }
+
         function runCheck(selector) {
+            let correct = 0;
+            let total = 0;
+
             document.querySelectorAll(selector).forEach(el => {
-                const isCorrect = el.value.toLowerCase().trim() === el.dataset.ans.toLowerCase();
+                total++;
+                const accepted = el.dataset.ans.split('|').map(normalizeAnswer);
+                const value = normalizeAnswer(el.value);
+                const isCorrect = accepted.includes(value);
+
                 el.classList.remove('correct', 'wrong');
                 el.classList.add(isCorrect ? 'correct' : 'wrong');
+
+                if (isCorrect) correct++;
+
+                const oldFeedback = el.parentNode.querySelector('.answer-feedback');
+                if (oldFeedback) oldFeedback.remove();
+
+                if (!isCorrect) {
+                    const feedback = document.createElement('span');
+                    feedback.className = 'answer-feedback';
+                    feedback.textContent = '→ ' + el.dataset.ans.split('|')[0];
+                    el.insertAdjacentElement('afterend', feedback);
+                }
             });
+
+            return { correct, total };
         }
 
         function checkEx1() { runCheck('#ex1-container input'); }
         function checkEx2() { runCheck('#ex2-container input'); }
-        function checkEx3() { runCheck('#ex3-container select'); }
+
+        function checkEx3() {
+            const result = runCheck('#ex3-container select');
+            let score = document.getElementById('ex3-score');
+
+            if (!score) {
+                score = document.createElement('div');
+                score.id = 'ex3-score';
+                score.className = 'score-feedback';
+                document.getElementById('ex3-container').insertAdjacentElement('afterend', score);
+            }
+
+            score.textContent = `Score : ${result.correct}/${result.total}`;
+        }
+
         function checkEx4() { runCheck('#ex4-container input'); }
         function checkEx6() { runCheck('#ex6-container input'); }
         function checkEx7() { runCheck('#ex7-container input'); }
@@ -498,7 +654,9 @@
         function checkEx5() {
             const items = Array.from(document.querySelectorAll('#sort-container .sortable-item'));
             const isCorrect = items.every((item, i) => item.innerText === dialOrder[i]);
-            alert(isCorrect ? "Parfait ! L'ordre est correct. ✅" : "Ce n'est pas encore l'ordre correct. Continuez ! ❌");
+            alert(isCorrect
+                ? "Parfait ! L'ordre est correct. ✅"
+                : "Ce n'est pas encore l'ordre correct. Continuez ! ❌");
         }
     </script>
 </body>
